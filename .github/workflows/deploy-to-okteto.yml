@@ -72,7 +72,7 @@ jobs:
         echo "IMAGE_VERSION=$VERSION" >> $GITHUB_OUPUT
         
     - name: Build & Push image
-      uses: okteto/build@master
+      uses: okteto/build@main
       with:
         tag: ${{ steps.prepare-env.outputs.IMAGE_NAME }}:${{ steps.prepare-env.outputs.IMAGE_VERSION }}
 
