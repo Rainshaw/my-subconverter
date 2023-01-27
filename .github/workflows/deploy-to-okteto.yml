@@ -126,11 +126,11 @@ jobs:
     
     steps:
     - name: Login
-      uses: okteto/login@master
+      uses: okteto/login@main
       with:
         token: ${{ secrets.OKTETO_TOKEN }}
     - name: Activate namespace
-      uses: okteto/namespace@master
+      uses: okteto/namespace@main
       with:
         namespace: ${{ secrets.OKTETO_NAMESPACE }}
     - name: Download k8s configuration
@@ -138,7 +138,7 @@ jobs:
       with:
         name: configuration
     - name: Deploy
-      uses: okteto/apply@master
+      uses: okteto/apply@main
       with:
         manifest: k8s.yml
     - name: Clean artifact
