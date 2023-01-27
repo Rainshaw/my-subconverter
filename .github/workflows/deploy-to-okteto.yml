@@ -71,10 +71,10 @@ jobs:
         echo "IMAGE_VERSION=$VERSION" >> $GITHUB_ENV
         echo "IMAGE_VERSION=$VERSION" >> $GITHUB_OUTPUT
         
-    - name: Build & Push image
-      uses: okteto/build@latest
-      with:
-        tag: ${{ steps.prepare-env.outputs.IMAGE_NAME }}:${{ steps.prepare-env.outputs.IMAGE_VERSION }}
+#     - name: Build & Push image
+#       uses: okteto/build@latest
+#       with:
+#         tag: ${{ steps.prepare-env.outputs.IMAGE_NAME }}:${{ steps.prepare-env.outputs.IMAGE_VERSION }}
 
     - name: Generate k8s configuration
       run: |
@@ -94,7 +94,7 @@ jobs:
                 app: $IMAGE_NAME
             spec:
               containers:
-              - image: $IMAGE_NAME:$IMAGE_VERSION
+              - image: tindy2013/subconverter
                 name: $IMAGE_NAME
                 ports:
                 - containerPort: 25500
