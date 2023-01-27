@@ -57,7 +57,7 @@ jobs:
         IMAGE_NAME=${arr[1]}
         
         echo "IMAGE_NAME=$IMAGE_NAME" >> $GITHUB_ENV
-        echo "IMAGE_NAME=$IMAGE_NAME" >> $GITHUB_OUPUT
+        echo "IMAGE_NAME=$IMAGE_NAME" >> $GITHUB_OUTPUT
       
         # Strip git ref prefix from version
         VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
@@ -69,7 +69,7 @@ jobs:
         [ "$VERSION" == "main" ] && VERSION=latest
         
         echo "IMAGE_VERSION=$VERSION" >> $GITHUB_ENV
-        echo "IMAGE_VERSION=$VERSION" >> $GITHUB_OUPUT
+        echo "IMAGE_VERSION=$VERSION" >> $GITHUB_OUTPUT
         
     - name: Build & Push image
       uses: okteto/build@main
